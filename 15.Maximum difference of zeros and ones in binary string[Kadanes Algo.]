@@ -1,0 +1,31 @@
+Method 01:Maximum difference of zeros and ones in binary string
+
+
+class Solution {
+    int maxSubstring(String S) {
+        // code here
+        int count=0;
+        int max=0;
+        
+        for(int i=0;i<S.length();i++){
+            if(S.charAt(i)=='0'){
+                count++;
+            }
+            else{
+                count--;
+            }
+            
+            if(count<=0){
+                count=0;
+            }
+            
+            if(count>max){
+                max=count;
+            }
+        }
+        if(max<=0){
+            return -1;
+        }
+        return max;
+    }
+}
