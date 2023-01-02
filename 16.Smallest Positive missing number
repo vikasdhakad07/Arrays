@@ -1,0 +1,19 @@
+Method 01:Smallest Positive missing number
+
+
+class Solution
+{
+    //Function to find the smallest positive number missing from the array.
+    static int missingNumber(int arr[], int size)
+    {
+        // Your code here
+        Arrays.sort(arr);
+        int no=1;
+        for(int i:arr){
+            if(no==i&&i>=1){
+                no++;
+            }
+        }
+        return no;
+    }
+}
