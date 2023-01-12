@@ -1,0 +1,14 @@
+Method 01:Trailing zeroes in factorial
+
+
+class Solution{
+    static int trailingZeroes(int N){
+        // Write your code here
+    
+    int fact=0;
+    for(int i=5;i<=N;i=i*5){
+        fact=fact+N/i;
+    }
+    return fact;
+    }
+}
