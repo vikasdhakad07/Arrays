@@ -1,0 +1,24 @@
+Method 01:Rearrange an array with O(1) extra space
+
+
+class Solution
+{
+ 
+    // arr: input array
+    // n: size of array
+    //Function to rearrange an array so that arr[i] becomes arr[arr[i]]
+    //with O(1) extra space.
+    static void arrange(long arr[], int n)
+    {
+        // your code here
+        long ar1[]=new long[(int)n];
+        for(int i=0;i<n;i++){
+            ar1[i]=arr[(int)arr[i]];
+            
+        }
+        
+        for(int i=0;i<n;i++){
+            arr[i]=ar1[i];
+        }
+    }
+}
