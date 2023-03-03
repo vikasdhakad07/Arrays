@@ -1,0 +1,27 @@
+Method 01: Cutting Rectangles
+
+
+
+class Solution{
+    
+    static long solve(long a, long b){
+        if(b==0){
+            return a;
+        }
+        return solve(b,a%b);
+    }
+    static List<Long> minimumSquares(long L, long B)
+    {
+        // code here
+        
+        long K=solve(L,B);
+        List<Long> li=new ArrayList<>();
+        long N=(L*B)/(K*K);
+       
+       
+         li.add(Long.valueOf(N));
+         li.add(Long.valueOf(K));
+           
+        return li;
+    }
+}
