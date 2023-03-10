@@ -1,0 +1,14 @@
+Method 01: Maximum Triplet product
+
+
+class Solution {
+    Long maxTripletProduct(Long arr[], int n)
+    {
+        // Complete the function
+        long max=Integer.MIN_VALUE, num=0;
+        Arrays.sort(arr);
+        max=arr[0]*arr[1]*arr[n-1];
+        num=arr[n-1]*arr[n-2]*arr[n-3];
+        return Math.max(max, num);
+    }
+}
