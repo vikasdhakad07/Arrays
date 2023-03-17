@@ -1,0 +1,31 @@
+Method 01: Maximum sum of subarray less than or equal to x
+
+
+class Solution
+{
+    long findMaxSubarraySum(long arr[], int N,int X)
+    {
+        // Your code goes here
+        int i=0, j=0;
+        long sum=0, max=0;
+        while(i<N&&j<N){
+            sum=sum+arr[i];
+            if(sum<=X){
+                max=Math.max(max, sum);
+                i++;
+            }
+            else{
+            while(sum>X){
+                sum=sum-arr[j];
+                j++;
+            }
+             if(sum<=X){
+                 max=Math.max(max, sum);
+                 i++;
+            }
+            }
+           
+        }
+        return max;
+    }
+}
