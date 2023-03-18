@@ -1,0 +1,25 @@
+Method 01: First negative integer in every window of size k
+
+
+class Compute {
+    
+    public long[] printFirstNegativeInteger(long A[], int N, int K)
+    {
+        long arr[]=new long[N-K+1];
+        boolean flag=false;
+        for(int i=0;i<N-K+1;i++){
+            for(int j=0;j<K;j++){
+                if(A[i+j]<0){
+                  arr[i]=A[i+j];
+                  flag=true;
+                  break;
+                }
+            }
+            if(!flag){
+            arr[i]=0;
+        }
+        }
+        
+        return arr;
+    }
+}
