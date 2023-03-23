@@ -1,0 +1,44 @@
+Method 01: Distinct Difference
+
+
+class Solution {
+    public static ArrayList<Integer> getDistinctDifference(int N, int[] A) {
+        // code here
+        ArrayList<Integer> al=new ArrayList<>();
+        HashSet<Integer> hs=new HashSet<>();
+        
+        if(N==0){
+            return al;
+        }
+        
+        if(N==1){
+            al.add(0);
+            return al;
+        }
+        
+        if(N==2){
+            al.add(1);
+            al.add(1);
+            return al;
+        }
+        
+        int left[]=new int[N];
+        int right[]=new int[N];
+   
+        for(int i=0;i<N;i++){
+            left[i]=hs.size();
+            hs.add(A[i]);
+        }
+         hs = new HashSet<Integer>();
+         for(int i=N-1;i>=0;i--){
+            right[i]=hs.size();
+            hs.add(A[i]);
+        }
+        
+        for(int i=0;i<N;i++){
+            al.add(left[i]-right[i]);
+        }
+        
+        return al;
+    }
+}
