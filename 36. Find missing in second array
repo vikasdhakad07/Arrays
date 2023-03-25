@@ -1,0 +1,22 @@
+Method 01: Find missing in second array
+
+
+class Solution
+{
+    ArrayList<Long> findMissing(long A[], long B[], int N, int M)
+    {
+        ArrayList<Long> al=new ArrayList<Long>();
+        HashSet<Long> set=new HashSet<>();
+        
+        for(int i=0;i<M;i++){
+            set.add(B[i]);
+        }
+        
+        for(int i=0;i<N;i++){
+        if(!set.contains(A[i])){
+            al.add(A[i]);
+        }
+        }
+        return al;
+    }
+}
