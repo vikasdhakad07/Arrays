@@ -1,0 +1,21 @@
+Method 01: Minimum Integer
+
+
+class Solution {
+    public static int minimumInteger(int N, int[] A) {
+        // code here
+        long sum=0;
+        Arrays.sort(A);
+        for(int i=0;i<N;i++){
+            sum=sum+A[i];
+        }
+        
+        
+        for(int i=0;i<N;i++){
+             if(sum<=(long)N*A[i]){
+                return A[i];
+            }
+        }
+        return 0;
+    }
+}
