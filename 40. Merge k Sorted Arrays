@@ -1,0 +1,19 @@
+Method 01: Merge k Sorted Arrays
+
+
+class Solution
+{
+    //Function to merge k sorted arrays.
+    public static ArrayList<Integer> mergeKArrays(int[][] arr,int K) 
+    {
+        // Write your code here.
+        ArrayList<Integer> al=new ArrayList<>();
+        for(int i=0;i<K;i++){
+            for(int j=0;j<K;j++){
+                al.add(arr[i][j]);
+            }
+        }
+        Collections.sort(al);
+        return al;
+    }
+}
