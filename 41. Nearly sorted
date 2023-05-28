@@ -1,0 +1,17 @@
+Method 01: Nearly sorted
+
+
+class Solution
+{
+    //Function to return the sorted array.
+    ArrayList <Integer> nearlySorted(int arr[], int num, int k)
+    {
+        // your code here
+        ArrayList <Integer> al=new ArrayList<>();
+        for(int i=0;i<num;i++){
+            al.add(arr[i]);
+        }
+        Collections.sort(al);
+        return al;
+    }
+}
