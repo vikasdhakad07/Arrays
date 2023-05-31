@@ -1,0 +1,26 @@
+Method 01: Count the number of possible triangles
+
+
+class Solution
+{
+    //Function to count the number of possible triangles.
+    static int findNumberOfTriangles(int arr[], int n)
+    {
+        // code here
+        int count=0;
+        Arrays.sort(arr);
+        for(int i=0;i<n-2;i++){
+            for(int j=i+1;j<n-1;j++){
+                for(int k=j+1;k<n;k++){
+                    if(arr[i]+arr[j]<=arr[k]){
+                        break;
+                    }
+                    else{
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+}
