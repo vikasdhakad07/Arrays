@@ -1,0 +1,22 @@
+Method 01: Left most and right most index
+
+
+class Solution {
+    
+    public pair indexes(long v[], long x)
+    {
+        // Your code goes here
+          int f=-1,l=-1;
+        
+        for(int i=0; i<v.length; i++){
+            if(x!=v[i]) 
+            continue;
+            
+            if(f==-1) 
+            f=i;
+            l=i;
+        }
+        
+        return new pair(f,l);
+    }
+}
