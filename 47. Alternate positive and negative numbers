@@ -1,0 +1,31 @@
+Method 01: Alternate positive and negative numbers
+
+
+class Solution {
+    void rearrange(int arr[], int n) {
+        // code here
+        ArrayList<Integer> p=new ArrayList<>();
+        ArrayList<Integer> ne=new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>=0){
+                p.add(arr[i]);
+            }
+            else{
+                ne.add(arr[i]);
+            }
+        }
+        int i=0,j=0,k=0;
+            while(i<p.size()&&j<ne.size()){
+                arr[k++]=p.get(i++);
+                arr[k++]=ne.get(j++);
+            }
+            
+            while(i<p.size()){
+                 arr[k++]=p.get(i++);
+            }
+            
+            while(j<ne.size()){
+                arr[k++]=ne.get(j++);
+            }
+    }
+}
