@@ -1,0 +1,32 @@
+Method 01: Sum of two elements with sum nearest to zero
+
+
+class Solution
+{
+    public static int closestToZero (int arr[], int n)
+    {
+        // your code here
+        Arrays.sort(arr);
+        int minSum=Integer.MAX_VALUE;
+        int l=0, h=n-1;
+        while(l<h){
+        int sum=arr[l]+arr[h];
+            if(Math.abs(sum)<Math.abs(minSum)){
+                minSum = sum;
+            }
+            if(Math.abs(sum)==Math.abs(minSum)){
+                minSum = Math.max(sum,minSum);
+            }
+           if(sum<0){
+                l++;
+            }
+            else if(sum>0){
+                h--;
+            }
+            else if(sum==0){
+                return 0;
+            }
+        }
+        return minSum;
+    }
+}
