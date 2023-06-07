@@ -1,0 +1,44 @@
+Method 01: Median of 2 Sorted Arrays of Different Sizes
+
+
+class GFG 
+{ 
+    static double medianOfArrays(int n, int m, int a[], int b[]) 
+    {
+        // Your Code Here
+        
+        int arr[]=new int[n+m];
+        int i=0, j=0, k=0;
+        while(i<n&&j<m){
+            if(a[i]<b[j]){
+                arr[k]=a[i];
+                i++;
+                k++;
+            }
+            else {
+                arr[k]=b[j];
+                j++;
+                k++;
+            }
+        }
+        while(i<n){
+            arr[k]=a[i];
+            i++;
+            k++;
+        }
+        while(j<m){
+            arr[k]=b[j];
+            j++;
+            k++;
+        }
+       double ans;
+        int x=(m+n)/2;
+        if((m+n)%2==0){
+         ans=(arr[x]+arr[x-1])/2.0;
+        }
+        else
+        ans=arr[x];
+        
+        return ans;
+    }
+}
