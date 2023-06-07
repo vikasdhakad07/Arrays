@@ -1,0 +1,31 @@
+Method 01: Max Circular Subarray Sum
+
+
+
+class Solution{
+
+    // a: input array
+    // n: size of array
+    //Function to find maximum circular subarray sum.
+    static int circularSubarraySum(int a[], int n) {
+        
+        // Your code here
+        int curmin=0, curmax=0;
+        int maxsum=a[0], minsum=a[0];
+        int totalsum=0;
+        for(int i=0;i<n;i++){
+            curmax=Math.max(curmax+a[i],a[i]);
+            curmin=Math.min(curmin+a[i],a[i]);
+            
+            totalsum+=a[i];
+            
+            maxsum=Math.max(maxsum, curmax);
+            minsum=Math.min(minsum, curmin);
+        }
+        if(maxsum<0){
+            return maxsum;
+        }
+        return Math.max(maxsum,(totalsum-minsum));
+    }
+    
+}
