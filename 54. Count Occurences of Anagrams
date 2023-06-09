@@ -1,0 +1,41 @@
+Method 01: Count Occurences of Anagrams
+
+
+class Solution {
+
+    int search(String pat, String txt) {
+        // code here
+        int count=0;
+        int pcount[]=new int[256];
+        int tcount[]=new int[256];
+        
+        for(int i=0;i<pat.length();i++){
+            pcount[pat.charAt(i)]++;
+            tcount[txt.charAt(i)]++;
+        }
+        
+       
+        int n=pat.length();
+        int m=txt.length();
+        for(int i=n;i<m;i++){
+            if(isEqual(pcount,tcount)){
+                count++;
+            }
+            tcount[txt.charAt(i-n)]--;
+            tcount[txt.charAt(i)]++;
+        }
+        if(isEqual(tcount,pcount)){
+            count++;
+        }
+        return count;
+    }
+        
+        boolean isEqual(int p[], int t[]){
+        for(int i=0;i<256;i++){
+            if(p[i]!=t[i]){
+                return false;
+            }
+        }
+        return true;
+        }
+    }
