@@ -1,0 +1,47 @@
+Method 01: Swapping pairs make sum equal
+
+
+class Solution
+{
+    long findSwapValues(long A[], int n, long  B[], int m)
+    {
+        // Your code goes here
+        long sum=0;
+        long suml=0;
+        for(int i=0;i<n;i++){
+            sum=sum+A[i];
+        }
+        for(int i=0;i<m;i++){
+            suml=suml+B[i];
+        }
+        
+        Arrays.sort(A);
+        Arrays.sort(B);
+        
+        
+        if((suml-sum)%2!=0){
+            return -1;
+        }
+        
+        long diff=(suml-sum)/2;
+        
+        if(diff==0){
+            return 1;
+        }
+        
+        int i=0, j=0;
+        while(i<n&&j<m){
+            if(B[j]-A[i]==diff){
+                return 1;
+            }
+           
+            if(B[j]-A[i]>diff){
+                i++;
+            }
+            else{
+                j++;
+            }
+        }
+        return -1;
+    }
+}
