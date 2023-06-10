@@ -1,0 +1,32 @@
+Method 01: Sorted subsequence of size 3
+
+
+class Solution {
+    ArrayList<Integer> find3Numbers(ArrayList<Integer> arr, int n) {
+        // add code here.
+        int leftMin[]=new int[n];
+        int rightMax[]=new int[n];
+        
+        int minSofar=Integer.MAX_VALUE;
+        int maxSofar=Integer.MIN_VALUE;
+        
+        for(int i=0;i<n;i++){
+            if(arr.get(i)<minSofar){
+                minSofar=arr.get(i);
+            }
+            leftMin[i]=minSofar;
+            
+            if(arr.get(n-i-1)>maxSofar){
+                maxSofar=arr.get(n-i-1);
+            }
+            rightMax[n-i-1]=maxSofar;
+        }
+        
+        for(int i=1;i<n;i++){
+            if(arr.get(i)>leftMin[i]&&arr.get(i)<rightMax[i]){
+            return new ArrayList<>(Arrays.asList(leftMin[i],arr.get(i),rightMax[i]));
+        }
+        }
+        return new ArrayList<>();
+    }
+}
