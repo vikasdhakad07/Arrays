@@ -1,0 +1,25 @@
+Method 01: A difference of values and indexes
+
+
+class Solution{
+    
+   
+    // Function for finding maximum and value pair
+    public static int maxDistance (int arr[], int n) {
+        //Complete the function
+           int mx1 = Integer.MIN_VALUE ;
+        int mn1 = Integer.MAX_VALUE ;
+         int mx2 = Integer.MIN_VALUE ;
+            int mn2 = Integer.MAX_VALUE ;
+            for(int i =0 ;i<n;i++)
+            {
+                mx1 = Math.max(mx1 , arr[i]-i) ;
+                mn1 = Math.min(mn1 , arr[i]-i) ;
+                mx2 = Math.max(mx2 , arr[i]+i) ;
+                mn2 = Math.min(mn2 , arr[i]+i) ;
+            }
+            return Math.max(mx1-mn1, mx2-mn2) ;
+    }
+    
+    
+}
