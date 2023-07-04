@@ -1,0 +1,51 @@
+Method 01: Using Array
+
+
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]==nums[i-1]){
+                i++;
+            }
+            else if(nums[i]!=nums[i-1]){
+                return nums[i-1];
+            }
+        }
+        return nums[nums.length-1];
+    }
+}
+
+
+Method 02: Using Bit Manupilation
+
+
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        int x=0;
+        for(int i=0;i<nums.length;i++){
+            x^=nums[i];
+        }
+        return x;
+    }
+}
+
+
+Method 03: Using HashMap
+
+
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        HashMap<Integer, Integer> map=new HashMap<>();
+        for(int i:nums){
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+
+        for(int i:map.keySet()){
+            if(map.get(i)==1){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
