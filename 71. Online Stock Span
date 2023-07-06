@@ -1,0 +1,28 @@
+Method 01: Online Stock Span
+
+
+class StockSpanner {
+    List<Integer> list;
+    int i;
+    public StockSpanner() {
+        list=new ArrayList<>();
+        int i=0;
+    }
+    
+    public int next(int price) {
+        list.add(i,price);
+        int j=i,count=0; 
+        while(list.get(j)<=price){
+            if(j==0){
+                count++;
+                break;
+            }
+            else{
+                count++;
+                j--;
+            }
+        }
+        i++;
+        return count;
+    }
+}
