@@ -17,3 +17,36 @@ class Solution {
         return ans;
     }
 }
+
+
+Method 02: Maximum Index
+
+
+class Solution {
+
+    int maxIndexDiff(int arr[], int n) {
+        // code here
+        
+        int mn[]=new int[n];
+        int mx[]=new int[n];
+        
+        mn[0]=arr[0];
+        mx[n-1]=arr[n-1];
+        for(int i=1;i<n;i++){
+            mn[i]=Math.min(mn[i-1],arr[i]);
+            mx[n-i-1]=Math.max(mx[n-i],arr[n-i-1]);
+        }
+        
+        int ans=0,i=0,j=0;
+        while(i<n&&j<n){
+            if(mn[i]<=mx[j]){
+                ans=Math.max(ans,j-i);
+                j++;
+            }
+            else{
+            i++;
+            }
+        }
+       return ans; 
+    }
+}
