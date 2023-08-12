@@ -1,0 +1,17 @@
+Method 01: Smallest sum contiguous subarray
+
+
+class Solution
+{
+    static int smallestSumSubarray(int a[], int size)
+    {
+        // your code here
+        int min=a[0];
+        int currSum=a[0];
+        for(int i=1;i<size;i++){
+            currSum=Math.min(a[i],currSum+a[i]);
+            min=Math.min(currSum,min);
+        }
+        return min;
+    }
+}
