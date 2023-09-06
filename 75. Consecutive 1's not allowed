@@ -1,0 +1,16 @@
+Method 01:Consecutive 1's not allowed
+
+
+class Solution {
+    long countStrings(int n) {
+        // code here
+        long zeros=1;
+        long ones=1;
+        for(int i=2;i<=n;i++){
+            long temp=zeros;
+            zeros=(ones+zeros)%1000000007;
+            ones=temp%1000000007;
+        }
+        return (ones+zeros)%1000000007;
+    }
+}
